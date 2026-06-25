@@ -5,9 +5,9 @@
   "observability": {
     "enabled": true
   },
-  "main": ".vinxi/build/server/index.js",
+  "main": "dist/server/server.js",
   "assets": {
-    "directory": ".vinxi/build/client",
+    "directory": "dist/client",
     "binding": "ASSETS"
   },
   "compatibility_flags": [
