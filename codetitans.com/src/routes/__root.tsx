@@ -11,6 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import logoSvg from "../assets/logo.svg";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteNav } from "../components/site-nav";
 import { SiteFooter } from "../components/site-footer";
@@ -86,10 +87,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Code Titans" },
       { property: "og:description", content: "Empowering youth through technology — coding programs in Java, Python, JavaScript, and Arduino." },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: logoSvg },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "Code Titans" },
     ],
     links: [
+      {
+        rel: "icon",
+        href: logoSvg,
+        type: "image/svg+xml",
+      },
       {
         rel: "stylesheet",
         href: appCss,
