@@ -6,7 +6,6 @@ export function Logo({ className }: { className?: string }) {
       src={logoSvg}
       alt="Code Titans Logo"
       className={className}
-      aria-hidden="false"
     />
   );
 }
