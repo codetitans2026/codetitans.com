@@ -1,0 +1,36 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer hexagon shape with hands -->
+  <g>
+    <!-- Left hand -->
+    <path d="M 256 384 L 256 256 L 384 384 L 384 512 Z" fill="currentColor"/>
+    
+    <!-- Right hand -->
+    <path d="M 768 384 L 768 256 L 640 384 L 640 512 Z" fill="currentColor"/>
+    
+    <!-- Top section -->
+    <path d="M 384 256 L 640 256 L 704 192 L 320 192 Z" fill="currentColor"/>
+    
+    <!-- Bottom left section -->
+    <path d="M 256 512 L 384 512 L 384 640 L 256 768 Z" fill="currentColor"/>
+    
+    <!-- Bottom right section -->
+    <path d="M 640 512 L 768 512 L 768 768 L 640 640 Z" fill="currentColor"/>
+    
+    <!-- Bottom center -->
+    <path d="M 384 640 L 640 640 L 640 768 L 384 768 Z" fill="currentColor"/>
+  </g>
+  
+  <!-- Inner code brackets symbol -->
+  <g transform="translate(512, 512)">
+    <!-- Left bracket -->
+    <path d="M -80 -100 L -140 -100 L -140 100 L -80 100" stroke="white" stroke-width="40" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Right bracket -->
+    <path d="M 80 -100 L 140 -100 L 140 100 L 80 100" stroke="white" stroke-width="40" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Lightning bolt -->
+  <g transform="translate(512, 256)">
+    <path d="M 0 -80 L 40 -20 L 0 -20 L 60 80 L -30 0 L 0 0 Z" fill="white"/>
+  </g>
+</svg>
