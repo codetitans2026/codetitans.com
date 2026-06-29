@@ -20,8 +20,8 @@ export function SiteNav() {
     <header className="absolute top-0 left-0 right-0 z-50">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-6 md:px-10">
         <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <Logo className="h-12 w-24" />
-          <span className="font-display text-base font-semibold tracking-wide text-foreground">
+          <Logo className="h-16 w-32" />
+          <span className="font-display text-2xl font-semibold tracking-wide text-foreground">
             Code Titans
           </span>
         </Link>
