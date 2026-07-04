@@ -5,9 +5,11 @@ const TO_EMAIL = "codetitans2026@gmail.com";
 export const Route = createFileRoute("/api/contact")({
   server: {
     handlers: {
-      POST: async ({ request }) => {
-        const resendApiKey = process.env.RESEND_API_KEY;
-
+      POST: async ({ request, context }) => {
+      
+        const env = context.cloudflare.env as { RESEND_API_KEY?: string };
+      
+        const resendApiKey = env.RESEND_API_KEY;
         if (!resendApiKey) {
           return Response.json({ error: "Email service not configured" }, { status: 500 });
         }
