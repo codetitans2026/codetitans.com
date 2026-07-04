@@ -1,0 +1,1 @@
+var e=`/assets/blue-wave-8_MMIg5u.jpg`;export{e as t};
