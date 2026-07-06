@@ -9,7 +9,7 @@ const NAV_LINKS = [
   { to: "/pricing", label: "Pricing" },
   { to: "/registration", label: "Registration" },
   { to: "/events", label: "Events" },
-  { to: "/donate", label: "Courses Offered" },
+  // { to: "/donate", label: "Courses Offered" },
   { to: "/contact", label: "Contact" },
 ] as const;
 

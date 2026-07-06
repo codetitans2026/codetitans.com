@@ -24,14 +24,14 @@ export function SiteFooter() {
           <Link to="/contact" className="text-foreground/85 hover:text-primary">Contact Us</Link>
         </div>
 
-        <div className="flex md:justify-end">
+        {/* <div className="flex md:justify-end">
           <Link
             to="/donate"
             className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Donate Now
           </Link>
-        </div>
+        </div> */}
       </div>
     </footer>
   );
