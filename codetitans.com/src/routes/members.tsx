@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "../components/reveal";
+import valanSebastian from "../assets/valan-sebastian.png";
 
 export const Route = createFileRoute("/members")({
   head: () => ({
@@ -54,8 +55,16 @@ function Members() {
                 delay={index * 100}
                 className="flex flex-col items-center"
               >
-                <div className="h-48 w-48 rounded-full border-4 border-[#000080] bg-[#000080]/20 flex items-center justify-center">
-                  <span className="text-foreground/30 text-sm">Photo</span>
+                <div className="h-48 w-48 rounded-full border-4 border-[#000080] bg-[#000080]/20 flex items-center justify-center overflow-hidden">
+                  {member === "Valan Sebastian" ? (
+                    <img
+                      src={valanSebastian}
+                      alt={member}
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <span className="text-foreground/30 text-sm">Photo</span>
+                  )}
                 </div>
                 <p className="mt-4 text-sm font-medium text-foreground">{member}</p>
               </Reveal>
