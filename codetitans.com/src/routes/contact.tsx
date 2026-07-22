@@ -1,6 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Mail, ThumbsUp, Instagram, Youtube } from "lucide-react";
+import { Reveal } from "../components/reveal";
+import { Gear } from "../components/gear";
+import { Sparkle } from "../components/sparkle";
+import { Sensor } from "../components/sensor";
+import { Led } from "../components/led";
+import { CodeBlock } from "../components/code-block";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -22,15 +28,34 @@ function Contact() {
     <>
       <section className="bg-background pt-32 pb-12">
         <div className="mx-auto max-w-[1400px] px-6 text-center md:px-10">
-          <p className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-foreground/90">
-            Let's Connect
-          </p>
-          <h1 className="font-display mt-3 text-4xl font-semibold text-foreground md:text-5xl">
-            Contact
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            Have a question for our team? Want to request a website for your business? Want to know more about our programs? Reach out to us via email, social media, or fill out the form below!
-          </p>
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <Gear size={48} color="#f97316" className="animate-gear" />
+            <Gear size={36} color="#3b82f6" reverse className="animate-gear-reverse" />
+            <Sparkle size={24} delay={0} className="text-yellow-400" />
+            <Sparkle size={20} delay={0.3} className="text-purple-400" />
+          </div>
+          <Reveal direction="up">
+            <p className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-foreground/90">
+              Let's Connect
+            </p>
+            <h1 className="font-display mt-3 text-4xl font-semibold text-foreground md:text-5xl">
+              Contact Us
+            </h1>
+            <div className="flex gap-3 mt-6 justify-center">
+              <CodeBlock>Email</CodeBlock>
+              <CodeBlock>Social</CodeBlock>
+              <CodeBlock>Form</CodeBlock>
+            </div>
+            <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
+              Have a question for our team? Want to request a website for your business? Want to know more about our programs? Reach out to us via email, social media, or fill out the form below!
+            </p>
+          </Reveal>
+          <div className="flex gap-4 mt-6 justify-center">
+            <Sensor size={32} color="#ef4444" />
+            <Led size={28} color="#22c55e" />
+            <Sensor size={28} color="#3b82f6" />
+            <Led size={24} color="#f59e0b" />
+          </div>
         </div>
       </section>
 
@@ -106,13 +131,13 @@ function Contact() {
             <button
               type="submit"
               disabled={status === "sending"}
-              className="inline-flex h-11 w-full items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-60"
+              className="inline-flex h-11 w-full items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-60 animate-bounce-fun"
             >
               {status === "sending"
                 ? "Sending…"
                 : status === "sent"
                   ? "Thanks — we'll be in touch!"
-                  : "Send"}
+                  : "Send Message"}
             </button>
             {status === "error" && (
               <p className="text-sm text-destructive">{errorMsg}</p>
