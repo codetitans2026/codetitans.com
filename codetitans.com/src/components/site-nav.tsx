@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { to: "/members", label: "Meet Our Members" },
   { to: "/programs", label: "View Our Programs" },
   { to: "/pricing", label: "Pricing" },
+  { to: "/sponsors", label: "Sponsors" },
   { to: "/registration", label: "Registration" },
   { to: "/events", label: "Events" },
   // { to: "/donate", label: "Courses Offered" },
