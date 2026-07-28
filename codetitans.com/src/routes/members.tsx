@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "../components/reveal";
 import valanSebastian from "../assets/valan-sebastian.png";
+import palashAgrawal from "../assets/palash-agrawal.jpg";
 
 export const Route = createFileRoute("/members")({
   head: () => ({
@@ -16,14 +17,14 @@ export const Route = createFileRoute("/members")({
 
 function Members() {
   const members = [
-    "Daniil Kupriianov",
-    "Palash Agrawal",
-    "Valan Sebastian",
-    "Shreeansh",
-    "Jeevesh",
-    "Minjae",
-    "Yashas",
-    "Aashman",
+    { name: "Daniil Kupriianov", role: "Python Mentor", image: null },
+    { name: "Palash Agrawal", role: "Java Mentor", image: palashAgrawal },
+    { name: "Valan Sebastian", role: "JavaScript Mentor", image: valanSebastian },
+    { name: "Shreeansh Bharadwaj", role: "Python Mentor", image: null },
+    { name: "Jeevesh Kandasamy", role: "Arduino and CAD Mentor", image: null },
+    { name: "Minjae Kim", role: "JavaScript Mentor", image: null },
+    { name: "Yashas Prasad", role: "Java Mentor", image: null },
+    { name: "Aashman", role: "Arduino and CAD Mentor", image: null },
   ];
 
   return (
@@ -49,24 +50,25 @@ function Members() {
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {members.map((member, index) => (
               <Reveal
-                key={member}
+                key={member.name}
                 as="div"
                 direction="scale"
                 delay={index * 100}
                 className="flex flex-col items-center"
               >
                 <div className="h-48 w-48 rounded-full border-4 border-[#000080] bg-[#000080]/20 flex items-center justify-center overflow-hidden">
-                  {member === "Valan Sebastian" ? (
+                  {member.image ? (
                     <img
-                      src={valanSebastian}
-                      alt={member}
+                      src={member.image}
+                      alt={member.name}
                       className="h-full w-full object-cover"
                     />
                   ) : (
                     <span className="text-foreground/30 text-sm">Photo</span>
                   )}
                 </div>
-                <p className="mt-4 text-sm font-medium text-foreground">{member}</p>
+                <p className="mt-4 text-sm font-medium text-foreground">{member.name}</p>
+                <p className="mt-1 text-xs text-muted-foreground">{member.role}</p>
               </Reveal>
             ))}
           </div>
