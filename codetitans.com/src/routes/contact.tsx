@@ -150,8 +150,8 @@ function Contact() {
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
           <div className="overflow-hidden rounded-lg border border-border">
             <iframe
-              title="Code Titans location — Cupertino, CA"
-              src="https://www.google.com/maps?q=Cupertino,+CA+95014&output=embed"
+              title="Code Titans location — Cupertino High School"
+              src="https://www.google.com/maps?q=Cupertino+High+School,+10100+Finley+Ave,+Cupertino,+CA+95014&output=embed"
               width="100%"
               height="360"
               loading="lazy"
