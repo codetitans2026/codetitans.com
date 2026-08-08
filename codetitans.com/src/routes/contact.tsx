@@ -92,36 +92,9 @@ function Contact() {
 
           <form
             className="space-y-5"
-            onSubmit={async (e) => {
+            onSubmit={(e) => {
               e.preventDefault();
-              if (status === "sending") return;
-              setStatus("sending");
-              setErrorMsg("");
-              const fd = new FormData(e.currentTarget);
-              try {
-                const res = await fetch("/api/contact", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({
-                    firstName: fd.get("firstName"),
-                    lastName: fd.get("lastName"),
-                    email: fd.get("email"),
-                    message: fd.get("message"),
-                  }),
-                });
-                if (!res.ok) {
-                  const data = await res.json().catch(() => ({}));
-                  setErrorMsg(data.error || "Email service not available. Please email us directly at codetitans2026@gmail.com");
-                  setStatus("error");
-                  return;
-                }
-                setStatus("sent");
-                (e.target as HTMLFormElement).reset();
-                setFormData({ firstName: "", lastName: "", email: "", message: "" });
-              } catch {
-                setErrorMsg("Network error. Please email us directly at codetitans2026@gmail.com");
-                setStatus("error");
-              }
+              handleEmailFallback();
             }}
           >
             <div className="grid grid-cols-2 gap-4">
@@ -144,27 +117,10 @@ function Contact() {
             </div>
             <button
               type="submit"
-              disabled={status === "sending"}
-              className="inline-flex h-11 w-full items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-60 animate-bounce-fun"
+              className="inline-flex h-11 w-full items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 animate-bounce-fun"
             >
-              {status === "sending"
-                ? "Sending…"
-                : status === "sent"
-                  ? "Thanks — we'll be in touch!"
-                  : "Send Message"}
+              Send via Email
             </button>
-            {status === "error" && (
-              <>
-                <p className="text-sm text-destructive">{errorMsg}</p>
-                <button
-                  type="button"
-                  onClick={handleEmailFallback}
-                  className="inline-flex h-11 w-full items-center justify-center rounded-md border border-border px-8 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-                >
-                  Open Email Client Instead
-                </button>
-              </>
-            )}
           </form>
         </div>
       </section>

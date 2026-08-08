@@ -7,17 +7,10 @@ export const Route = createFileRoute("/api/contact")({
     handlers: {
       POST: async ({ request, context }) => {
       
-        console.log("Environment check:", { 
-          hasContext: !!context,
-          hasCloudflare: !!(context as any)?.cloudflare,
-          hasEnv: !!(context as any)?.cloudflare?.env,
-          processEnv: process.env.RESEND_API_KEY ? "exists" : "missing"
-        });
-      
-        const env = (context as any)?.cloudflare?.env as { RESEND_API_KEY?: string };
-      
-        const resendApiKey = env?.RESEND_API_KEY || process.env.RESEND_API_KEY;
+        const resendApiKey = process.env.RESEND_API_KEY;
+        
         if (!resendApiKey) {
+          console.error("RESEND_API_KEY not found in environment");
           return Response.json({ error: "Email service not configured" }, { status: 500 });
         }
 
