@@ -9,7 +9,7 @@ export const Route = createFileRoute("/api/contact")({
       
         const env = context.cloudflare.env as { RESEND_API_KEY?: string };
       
-        const resendApiKey = env.RESEND_API_KEY;
+        const resendApiKey = env.RESEND_API_KEY || process.env.RESEND_API_KEY;
         if (!resendApiKey) {
           return Response.json({ error: "Email service not configured" }, { status: 500 });
         }

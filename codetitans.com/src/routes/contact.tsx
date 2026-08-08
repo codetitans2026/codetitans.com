@@ -23,6 +23,17 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [formData, setFormData] = useState({ firstName: "", lastName: "", email: "", message: "" });
+
+  const handleEmailFallback = () => {
+    const { firstName, lastName, email, message } = formData;
+    const fullName = [firstName, lastName].filter(Boolean).join(" ") || "Website visitor";
+    const subject = encodeURIComponent(`Contact from ${fullName}`);
+    const body = encodeURIComponent(
+      `Name: ${fullName}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
+    window.location.href = `mailto:codetitans2026@gmail.com?subject=${subject}&body=${body}`;
+  };
 
   return (
     <>
@@ -100,23 +111,24 @@ function Contact() {
                 });
                 if (!res.ok) {
                   const data = await res.json().catch(() => ({}));
-                  setErrorMsg(data.error || "Something went wrong. Please try again.");
+                  setErrorMsg(data.error || "Email service not available. Please email us directly at codetitans2026@gmail.com");
                   setStatus("error");
                   return;
                 }
                 setStatus("sent");
                 (e.target as HTMLFormElement).reset();
+                setFormData({ firstName: "", lastName: "", email: "", message: "" });
               } catch {
-                setErrorMsg("Network error. Please try again.");
+                setErrorMsg("Network error. Please email us directly at codetitans2026@gmail.com");
                 setStatus("error");
               }
             }}
           >
             <div className="grid grid-cols-2 gap-4">
-              <Field label="First Name" name="firstName" />
-              <Field label="Last Name" name="lastName" />
+              <Field label="First Name" name="firstName" value={formData.firstName} onChange={(e) => setFormData({...formData, firstName: e.target.value})} />
+              <Field label="Last Name" name="lastName" value={formData.lastName} onChange={(e) => setFormData({...formData, lastName: e.target.value})} />
             </div>
-            <Field label="Email *" name="email" type="email" required />
+            <Field label="Email *" name="email" type="email" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
             <div>
               <label className="text-xs font-medium text-foreground/80" htmlFor="message">
                 Message
@@ -125,6 +137,8 @@ function Contact() {
                 id="message"
                 name="message"
                 rows={5}
+                value={formData.message}
+                onChange={(e) => setFormData({...formData, message: e.target.value})}
                 className="mt-1 w-full rounded-md border border-border bg-input/40 px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
               />
             </div>
@@ -140,7 +154,16 @@ function Contact() {
                   : "Send Message"}
             </button>
             {status === "error" && (
-              <p className="text-sm text-destructive">{errorMsg}</p>
+              <>
+                <p className="text-sm text-destructive">{errorMsg}</p>
+                <button
+                  type="button"
+                  onClick={handleEmailFallback}
+                  className="inline-flex h-11 w-full items-center justify-center rounded-md border border-border px-8 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+                >
+                  Open Email Client Instead
+                </button>
+              </>
             )}
           </form>
         </div>
@@ -154,11 +177,15 @@ function Field({
   name,
   type = "text",
   required,
+  value,
+  onChange,
 }: {
   label: string;
   name: string;
   type?: string;
   required?: boolean;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
   return (
     <div>
@@ -170,6 +197,8 @@ function Field({
         name={name}
         type={type}
         required={required}
+        value={value}
+        onChange={onChange}
         className="mt-1 h-10 w-full rounded-md border border-border bg-input/40 px-3 text-sm text-foreground outline-none focus:border-primary"
       />
     </div>
