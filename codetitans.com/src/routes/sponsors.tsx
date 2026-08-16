@@ -61,26 +61,7 @@ const SPONSOR_TIERS = [
   },
 ];
 
-const CURRENT_SPONSORS = [
-  {
-    name: "TechCorp Solutions",
-    tier: "Titan Sponsor",
-    logo: "🏢",
-    description: "Leading technology company supporting STEM education",
-  },
-  {
-    name: "InnovateLabs",
-    tier: "Code Sponsor", 
-    logo: "🔬",
-    description: "Research and development company focused on youth education",
-  },
-  {
-    name: "CodeFirst Academy",
-    tier: "Spark Sponsor",
-    logo: "📚",
-    description: "Educational platform dedicated to coding literacy",
-  },
-];
+const CURRENT_SPONSORS: { name: string; tier: string; logo: string; description: string }[] = [];
 
 function Sponsors() {
   return (
@@ -161,36 +142,38 @@ function Sponsors() {
       </section>
 
       {/* Current Sponsors */}
-      <section className="bg-background py-20">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <Reveal direction="up">
-            <h2 className="font-display text-3xl font-semibold text-foreground mb-12">Our Current Sponsors</h2>
-          </Reveal>
-          <div className="grid gap-6 md:grid-cols-3">
-            {CURRENT_SPONSORS.map((sponsor, i) => (
-              <Reveal
-                key={sponsor.name}
-                direction={i % 2 === 0 ? "left" : "right"}
-                delay={i * 120}
-                className="rounded-lg border border-border bg-card/40 backdrop-blur p-6 hover:border-primary/50 transition-colors"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="text-4xl">{sponsor.logo}</div>
-                  <div>
-                    <h3 className="font-display text-lg font-semibold text-foreground">{sponsor.name}</h3>
-                    <span className="text-xs font-medium text-primary">{sponsor.tier}</span>
+      {CURRENT_SPONSORS.length > 0 && (
+        <section className="bg-background py-20">
+          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+            <Reveal direction="up">
+              <h2 className="font-display text-3xl font-semibold text-foreground mb-12">Our Current Sponsors</h2>
+            </Reveal>
+            <div className="grid gap-6 md:grid-cols-3">
+              {CURRENT_SPONSORS.map((sponsor, i) => (
+                <Reveal
+                  key={sponsor.name}
+                  direction={i % 2 === 0 ? "left" : "right"}
+                  delay={i * 120}
+                  className="rounded-lg border border-border bg-card/40 backdrop-blur p-6 hover:border-primary/50 transition-colors"
+                >
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="text-4xl">{sponsor.logo}</div>
+                    <div>
+                      <h3 className="font-display text-lg font-semibold text-foreground">{sponsor.name}</h3>
+                      <span className="text-xs font-medium text-primary">{sponsor.tier}</span>
+                    </div>
                   </div>
-                </div>
-                <p className="text-sm text-muted-foreground">{sponsor.description}</p>
-                <div className="flex gap-2 mt-4">
-                  <Sparkle size={14} delay={i * 0.1} className="text-yellow-400" />
-                  <Sparkle size={12} delay={i * 0.1 + 0.2} className="text-blue-400" />
-                </div>
-              </Reveal>
-            ))}
+                  <p className="text-sm text-muted-foreground">{sponsor.description}</p>
+                  <div className="flex gap-2 mt-4">
+                    <Sparkle size={14} delay={i * 0.1} className="text-yellow-400" />
+                    <Sparkle size={12} delay={i * 0.1 + 0.2} className="text-blue-400" />
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Why Sponsor */}
       <section className="bg-background py-20">

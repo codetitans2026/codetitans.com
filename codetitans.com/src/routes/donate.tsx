@@ -26,29 +26,7 @@ type CourseItem = {
 
 type CourseDraft = Omit<CourseItem, "id">;
 
-const INITIAL_COURSES: CourseItem[] = [
-  {
-    id: 1,
-    title: "Intro to Python",
-    description: "A beginner-friendly track for students who want to learn logic, variables, and simple projects.",
-    duration: "6 weeks",
-    level: "Beginner",
-  },
-  {
-    id: 2,
-    title: "JavaScript for Web Apps",
-    description: "Create dashboards, mini-games, and interactive pages with modern JavaScript techniques.",
-    duration: "8 weeks",
-    level: "Intermediate",
-  },
-  {
-    id: 3,
-    title: "AI & Robotics Basics",
-    description: "Explore sensors, simple automation, and hands-on AI ideas that connect coding with real devices.",
-    duration: "10 weeks",
-    level: "Advanced",
-  },
-];
+const INITIAL_COURSES: CourseItem[] = [];
 
 const DEFAULT_DRAFT: CourseDraft = {
   title: "",

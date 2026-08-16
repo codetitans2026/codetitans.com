@@ -67,15 +67,15 @@ function Registration() {
             </Link>
           </Reveal>
           <div className="mt-8 grid grid-cols-3 gap-4">
-            <div className="text-center p-4 rounded-lg bg-card/40 border border-border">
+            <div className="text-center p-4 rounded-lg bg-card/40 border border-border animate-hover-bounce cursor-pointer">
               <div className="text-3xl mb-2">🎯</div>
               <div className="text-sm font-semibold text-foreground">Choose Program</div>
             </div>
-            <div className="text-center p-4 rounded-lg bg-card/40 border border-border">
+            <div className="text-center p-4 rounded-lg bg-card/40 border border-border animate-hover-bounce cursor-pointer">
               <div className="text-3xl mb-2">📝</div>
               <div className="text-sm font-semibold text-foreground">Fill Form</div>
             </div>
-            <div className="text-center p-4 rounded-lg bg-card/40 border border-border">
+            <div className="text-center p-4 rounded-lg bg-card/40 border border-border animate-hover-bounce cursor-pointer">
               <div className="text-3xl mb-2">🚀</div>
               <div className="text-sm font-semibold text-foreground">Start Learning</div>
             </div>
