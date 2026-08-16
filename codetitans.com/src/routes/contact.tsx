@@ -23,6 +23,17 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [formData, setFormData] = useState({ firstName: "", lastName: "", email: "", message: "" });
+
+  const handleEmailFallback = () => {
+    const { firstName, lastName, email, message } = formData;
+    const fullName = [firstName, lastName].filter(Boolean).join(" ") || "Website visitor";
+    const subject = encodeURIComponent(`Contact from ${fullName}`);
+    const body = encodeURIComponent(
+      `Name: ${fullName}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
+    window.location.href = `mailto:codetitans2026@gmail.com?subject=${subject}&body=${body}`;
+  };
 
   return (
     <>
@@ -81,42 +92,16 @@ function Contact() {
 
           <form
             className="space-y-5"
-            onSubmit={async (e) => {
+            onSubmit={(e) => {
               e.preventDefault();
-              if (status === "sending") return;
-              setStatus("sending");
-              setErrorMsg("");
-              const fd = new FormData(e.currentTarget);
-              try {
-                const res = await fetch("/api/contact", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({
-                    firstName: fd.get("firstName"),
-                    lastName: fd.get("lastName"),
-                    email: fd.get("email"),
-                    message: fd.get("message"),
-                  }),
-                });
-                if (!res.ok) {
-                  const data = await res.json().catch(() => ({}));
-                  setErrorMsg(data.error || "Something went wrong. Please try again.");
-                  setStatus("error");
-                  return;
-                }
-                setStatus("sent");
-                (e.target as HTMLFormElement).reset();
-              } catch {
-                setErrorMsg("Network error. Please try again.");
-                setStatus("error");
-              }
+              handleEmailFallback();
             }}
           >
             <div className="grid grid-cols-2 gap-4">
-              <Field label="First Name" name="firstName" />
-              <Field label="Last Name" name="lastName" />
+              <Field label="First Name" name="firstName" value={formData.firstName} onChange={(e) => setFormData({...formData, firstName: e.target.value})} />
+              <Field label="Last Name" name="lastName" value={formData.lastName} onChange={(e) => setFormData({...formData, lastName: e.target.value})} />
             </div>
-            <Field label="Email *" name="email" type="email" required />
+            <Field label="Email *" name="email" type="email" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
             <div>
               <label className="text-xs font-medium text-foreground/80" htmlFor="message">
                 Message
@@ -125,23 +110,17 @@ function Contact() {
                 id="message"
                 name="message"
                 rows={5}
+                value={formData.message}
+                onChange={(e) => setFormData({...formData, message: e.target.value})}
                 className="mt-1 w-full rounded-md border border-border bg-input/40 px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
               />
             </div>
             <button
               type="submit"
-              disabled={status === "sending"}
-              className="inline-flex h-11 w-full items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-60 animate-bounce-fun"
+              className="inline-flex h-11 w-full items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 animate-bounce-fun"
             >
-              {status === "sending"
-                ? "Sending…"
-                : status === "sent"
-                  ? "Thanks — we'll be in touch!"
-                  : "Send Message"}
+              Send via Email
             </button>
-            {status === "error" && (
-              <p className="text-sm text-destructive">{errorMsg}</p>
-            )}
           </form>
         </div>
       </section>
@@ -150,8 +129,8 @@ function Contact() {
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
           <div className="overflow-hidden rounded-lg border border-border">
             <iframe
-              title="Code Titans location — Cupertino, CA"
-              src="https://www.google.com/maps?q=Cupertino,+CA+95014&output=embed"
+              title="Code Titans location — Cupertino High School"
+              src="https://www.google.com/maps?q=Cupertino+High+School,+10100+Finley+Ave,+Cupertino,+CA+95014&output=embed"
               width="100%"
               height="360"
               loading="lazy"
@@ -170,11 +149,15 @@ function Field({
   name,
   type = "text",
   required,
+  value,
+  onChange,
 }: {
   label: string;
   name: string;
   type?: string;
   required?: boolean;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
   return (
     <div>
@@ -186,6 +169,8 @@ function Field({
         name={name}
         type={type}
         required={required}
+        value={value}
+        onChange={onChange}
         className="mt-1 h-10 w-full rounded-md border border-border bg-input/40 px-3 text-sm text-foreground outline-none focus:border-primary"
       />
     </div>

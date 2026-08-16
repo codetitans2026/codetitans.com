@@ -7,10 +7,10 @@ export const Route = createFileRoute("/api/contact")({
     handlers: {
       POST: async ({ request, context }) => {
       
-        const env = context.cloudflare.env as { RESEND_API_KEY?: string };
-      
-        const resendApiKey = env.RESEND_API_KEY;
+        const resendApiKey = process.env.RESEND_API_KEY;
+        
         if (!resendApiKey) {
+          console.error("RESEND_API_KEY not found in environment");
           return Response.json({ error: "Email service not configured" }, { status: 500 });
         }
 
