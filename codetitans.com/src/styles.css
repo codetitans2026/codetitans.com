@@ -247,10 +247,6 @@
   0%, 100% { transform: scale(0) rotate(0deg); opacity: 0; }
   50% { transform: scale(1) rotate(180deg); opacity: 1; }
 }
-@keyframes hover-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
 
 .animate-page-in { animation: page-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
@@ -286,7 +282,6 @@
 .animate-cad-draw { animation: cad-draw 2s ease-out forwards; }
 .animate-robot-arm { animation: robot-arm 2s ease-in-out infinite; transform-origin: bottom center; }
 .animate-sparkle { animation: sparkle 2s ease-in-out infinite; }
-.animate-hover-bounce:hover { animation: hover-bounce 0.6s ease-in-out infinite; }
 
 .reveal { opacity: 0; will-change: transform, opacity; }
 .reveal.is-visible.reveal-up    { animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }

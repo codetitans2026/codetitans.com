@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import blueCode from "../assets/blue-code.jpg";
 import { Reveal } from "../components/reveal";
 import { Gear } from "../components/gear";
@@ -11,9 +11,9 @@ export const Route = createFileRoute("/registration")({
   head: () => ({
     meta: [
       { title: "Registration — Code Titans" },
-      { name: "description", content: "Registration for Code Titans programs — coming soon. Reach out for any inquiries about our coding courses." },
+      { name: "description", content: "Register for Code Titans programs by filling out our Google Form. For any inquiries about our coding courses, feel free to reach out to us." },
       { property: "og:title", content: "Registration — Code Titans" },
-      { property: "og:description", content: "Registration information coming soon — contact us for details." },
+      { property: "og:description", content: "Register for Code Titans programs through our Google Form." },
     ],
   }),
   component: Registration,
@@ -44,12 +44,12 @@ function Registration() {
             </h1>
           </Reveal>
           <div className="flex gap-3 mt-6">
-            <CodeBlock>Coming Soon</CodeBlock>
-            <CodeBlock>Stay Tuned</CodeBlock>
+            <CodeBlock>Register Now</CodeBlock>
+            <CodeBlock>Join Us</CodeBlock>
           </div>
           <Reveal direction="blur" delay={200}>
             <p className="mt-8 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
-              More information for registration coming soon! Stay tuned! For any inquiries, feel free to reach out to us via email. We appreciate your interest in supporting our mission.
+              Ready to join Code Titans? Fill out our registration form to get started! For any inquiries about our programs, feel free to reach out to us via email. We appreciate your interest in supporting our mission.
             </p>
           </Reveal>
           <div className="flex gap-4 mt-6">
@@ -59,27 +59,15 @@ function Registration() {
             <Led size={24} color="#f59e0b" />
           </div>
           <Reveal direction="up" delay={450}>
-            <Link
-              to="/contact"
+            <a
+              href="https://docs.google.com/forms/d/1NlqVhofYAqLbk08PcPJdQ0SKqKFb227w6sKdQ4mCHSU/edit#responses"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-10 inline-flex h-11 items-center justify-center rounded-md bg-primary px-10 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 animate-bounce-fun"
             >
-              Contact Us
-            </Link>
+              Fill Form
+            </a>
           </Reveal>
-          <div className="mt-8 grid grid-cols-3 gap-4">
-            <div className="text-center p-4 rounded-lg bg-card/40 border border-border animate-hover-bounce cursor-pointer">
-              <div className="text-3xl mb-2">🎯</div>
-              <div className="text-sm font-semibold text-foreground">Choose Program</div>
-            </div>
-            <div className="text-center p-4 rounded-lg bg-card/40 border border-border animate-hover-bounce cursor-pointer">
-              <div className="text-3xl mb-2">📝</div>
-              <div className="text-sm font-semibold text-foreground">Fill Form</div>
-            </div>
-            <div className="text-center p-4 rounded-lg bg-card/40 border border-border animate-hover-bounce cursor-pointer">
-              <div className="text-3xl mb-2">🚀</div>
-              <div className="text-sm font-semibold text-foreground">Start Learning</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
