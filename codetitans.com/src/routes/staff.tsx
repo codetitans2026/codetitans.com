@@ -3,12 +3,12 @@ import { Reveal } from "../components/reveal";
 import valanSebastian from "../assets/valan-sebastian.png";
 import palashAgrawal from "../assets/palash-agrawal.jpg";
 
-export const Route = createFileRoute("/members")({
+export const Route = createFileRoute("/staff")({
   head: () => ({
     meta: [
-      { title: "Meet Our Members — Code Titans" },
+      { title: "Meet Our Staff — Code Titans" },
       { name: "description", content: "Meet the passionate team behind Code Titans." },
-      { property: "og:title", content: "Meet Our Members — Code Titans" },
+      { property: "og:title", content: "Meet Our Staff — Code Titans" },
       { property: "og:description", content: "Our dedicated team of educators and mentors." },
     ],
   }),
@@ -34,7 +34,7 @@ function Members() {
         <div className="relative mx-auto max-w-[1400px] px-6 pt-40 pb-24 md:px-10">
           <Reveal direction="blur">
             <h1 className="font-display text-4xl font-semibold text-foreground md:text-5xl">
-              Meet Our Members
+              Meet Our Staff
             </h1>
           </Reveal>
           <Reveal direction="left" delay={250}>

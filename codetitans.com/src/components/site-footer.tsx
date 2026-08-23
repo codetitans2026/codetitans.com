@@ -19,8 +19,12 @@ export function SiteFooter() {
 
         <div className="grid grid-cols-2 gap-y-3 text-sm md:justify-self-center">
           <Link to="/about" className="text-foreground/85 hover:text-primary">About Us</Link>
+          <Link to="/staff" className="text-foreground/85 hover:text-primary">Our Staff</Link>
           <Link to="/programs" className="text-foreground/85 hover:text-primary">Programs</Link>
+          <Link to="/pricing" className="text-foreground/85 hover:text-primary">Pricing</Link>
+          <Link to="/sponsors" className="text-foreground/85 hover:text-primary">Sponsors</Link>
           <Link to="/registration" className="text-foreground/85 hover:text-primary">Register</Link>
+          <Link to="/events" className="text-foreground/85 hover:text-primary">Events</Link>
           <Link to="/contact" className="text-foreground/85 hover:text-primary">Contact Us</Link>
         </div>
 

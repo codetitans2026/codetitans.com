@@ -5,7 +5,7 @@ import { Logo } from "./logo";
 
 const NAV_LINKS = [
   { to: "/about", label: "About Us" },
-  { to: "/members", label: "Meet Our Members" },
+  { to: "/staff", label: "Meet Our Staff" },
   { to: "/programs", label: "View Our Programs" },
   { to: "/pricing", label: "Pricing" },
   { to: "/sponsors", label: "Sponsors" },

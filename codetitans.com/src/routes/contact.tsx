@@ -84,44 +84,23 @@ function Contact() {
               <ThumbsUp className="mx-auto h-6 w-6 text-foreground/90" />
               <p className="mt-3 font-display text-base font-semibold">Social Media</p>
               <div className="mt-3 flex justify-center gap-4 text-foreground/80">
-                <a href="#" aria-label="Instagram" className="hover:text-primary"><Instagram className="h-4 w-4" /></a>
+                <a href="https://www.instagram.com/code_titans" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-primary"><Instagram className="h-4 w-4" /></a>
                 <a href="#" aria-label="YouTube" className="hover:text-primary"><Youtube className="h-4 w-4" /></a>
               </div>
             </div>
           </div>
 
-          <form
-            className="space-y-5"
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleEmailFallback();
-            }}
-          >
-            <div className="grid grid-cols-2 gap-4">
-              <Field label="First Name" name="firstName" value={formData.firstName} onChange={(e) => setFormData({...formData, firstName: e.target.value})} />
-              <Field label="Last Name" name="lastName" value={formData.lastName} onChange={(e) => setFormData({...formData, lastName: e.target.value})} />
-            </div>
-            <Field label="Email *" name="email" type="email" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
-            <div>
-              <label className="text-xs font-medium text-foreground/80" htmlFor="message">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={5}
-                value={formData.message}
-                onChange={(e) => setFormData({...formData, message: e.target.value})}
-                className="mt-1 w-full rounded-md border border-border bg-input/40 px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
-              />
-            </div>
-            <button
-              type="submit"
-              className="inline-flex h-11 w-full items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 animate-bounce-fun"
+          <div className="w-full">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLScTp9DqNN6RkH4wHZFUAjs_FzI1C8OR3hIAR608TfV2dWgPbA/viewform?embedded=true"
+              width="100%"
+              height="500"
+              style={{ border: '0' }}
+              className="rounded-lg"
             >
-              Send via Email
-            </button>
-          </form>
+              Loading form...
+            </iframe>
+          </div>
         </div>
       </section>
 

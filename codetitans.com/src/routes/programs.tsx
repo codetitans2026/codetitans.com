@@ -115,12 +115,8 @@ function Programs() {
           {/* Customizable Programs Table */}
           <div className="mt-8 rounded-lg border border-border bg-card/60 backdrop-blur overflow-hidden">
             <div className="grid grid-cols-12 gap-4 p-4 bg-primary/10 border-b border-border font-semibold text-sm">
-              <div className="col-span-1">Icon</div>
-              <div className="col-span-3">Program</div>
-              <div className="col-span-2">Duration</div>
-              <div className="col-span-2">Age Group</div>
-              <div className="col-span-3">Description</div>
-              <div className="col-span-1">Actions</div>
+              <div className="col-span-4">Program</div>
+              <div className="col-span-8">Description</div>
             </div>
             
             {PROGRAMS.map((p, i) => (
@@ -130,48 +126,40 @@ function Programs() {
                 delay={i * 140}
                 className="grid grid-cols-12 gap-4 p-4 border-b border-border items-center hover:bg-card/80 transition-colors"
               >
-                <div className="col-span-1">
-                  <div 
-                    className="relative cursor-pointer inline-block"
-                    onClick={() => handleSymbolClick(i)}
-                    style={{
-                      transform: symbolPositions[i] ? `translate(${symbolPositions[i].x}px, ${symbolPositions[i].y}px)` : 'translate(0, 0)',
-                      transition: 'transform 0.5s ease-out'
-                    }}
-                  >
-                    <img
-                      src={p.icon}
-                      alt={p.alt}
-                      width={48}
-                      height={48}
-                      className="h-12 w-12 object-contain transition-transform duration-300 hover:scale-125"
-                      loading="lazy"
-                    />
-                    {selectedProgram === i && (
-                      <div className="absolute -top-2 -right-2">
-                        <Sparkle size={16} delay={0} className="text-yellow-400" />
+                <div className="col-span-4">
+                  <div className="flex items-center gap-3">
+                    <div 
+                      className="relative cursor-pointer inline-block flex-shrink-0"
+                      onClick={() => handleSymbolClick(i)}
+                      style={{
+                        transform: symbolPositions[i] ? `translate(${symbolPositions[i].x}px, ${symbolPositions[i].y}px)` : 'translate(0, 0)',
+                        transition: 'transform 0.5s ease-out'
+                      }}
+                    >
+                      <img
+                        src={p.icon}
+                        alt={p.alt}
+                        width={48}
+                        height={48}
+                        className="h-12 w-12 object-contain transition-transform duration-300 hover:scale-125"
+                        loading="lazy"
+                      />
+                      {selectedProgram === i && (
+                        <div className="absolute -top-2 -right-2">
+                          <Sparkle size={16} delay={0} className="text-yellow-400" />
+                        </div>
+                      )}
+                    </div>
+                    <div>
+                      <h3 className="font-display text-base font-semibold text-foreground">{p.title}</h3>
+                      <div className="flex gap-2 mt-1">
+                        <Sensor size={16} color={p.color} />
+                        <Led size={14} color={p.color} />
                       </div>
-                    )}
+                    </div>
                   </div>
                 </div>
-                <div className="col-span-3">
-                  <h3 className="font-display text-base font-semibold text-foreground">{p.title}</h3>
-                  <div className="flex gap-2 mt-1">
-                    <Sensor size={16} color={p.color} />
-                    <Led size={14} color={p.color} />
-                  </div>
-                </div>
-                <div className="col-span-2 text-sm text-muted-foreground">{p.duration}</div>
-                <div className="col-span-2 text-sm text-muted-foreground">{p.age} years</div>
-                <div className="col-span-3 text-sm text-muted-foreground line-clamp-2">{p.body}</div>
-                <div className="col-span-1">
-                  <button 
-                    className="px-3 py-1 rounded bg-primary text-primary-foreground text-xs font-medium hover:bg-primary/90 transition-colors animate-bounce-fun"
-                    onClick={() => setSelectedProgram(i)}
-                  >
-                    {selectedProgram === i ? 'Selected' : 'Select'}
-                  </button>
-                </div>
+                <div className="col-span-8 text-sm text-muted-foreground line-clamp-2">{p.body}</div>
               </Reveal>
             ))}
           </div>
