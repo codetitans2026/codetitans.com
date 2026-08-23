@@ -92,14 +92,22 @@ function Contact() {
 
           <div className="w-full">
             <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLScTp9DqNN6RkH4wHZFUAjs_FzI1C8OR3hIAR608TfV2dWgPbA/viewform?embedded=true"
+              src="https://docs.google.com/forms/d/e/1FAIpQLScTp9DqNN6RkH4wHZFUAjs_FzI1C8OR3hIAR608TfV2dWgPbA/viewform"
               width="100%"
-              height="500"
+              height="600"
               style={{ border: '0' }}
               className="rounded-lg"
             >
               Loading form...
             </iframe>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLScTp9DqNN6RkH4wHZFUAjs_FzI1C8OR3hIAR608TfV2dWgPbA/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-block text-sm text-primary hover:underline"
+            >
+              View in external browser
+            </a>
           </div>
         </div>
       </section>
