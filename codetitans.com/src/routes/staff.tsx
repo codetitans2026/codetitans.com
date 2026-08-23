@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "../components/reveal";
 import valanSebastian from "../assets/valan-sebastian.png";
 import palashAgrawal from "../assets/palash-agrawal.jpg";
+import shreeanshBharadwaj from "../assets/shreeansh-bharadwaj.jpg";
 
 export const Route = createFileRoute("/staff")({
   head: () => ({
@@ -20,7 +21,7 @@ function Members() {
     { name: "Daniil Kupriianov", role: "Python Mentor", image: null },
     { name: "Palash Agrawal", role: "Java Mentor", image: palashAgrawal },
     { name: "Valan Sebastian", role: "JavaScript Mentor", image: valanSebastian },
-    { name: "Shreeansh Bharadwaj", role: "Python Mentor", image: null },
+    { name: "Shreeansh Bharadwaj", role: "Python Mentor", image: shreeanshBharadwaj },
     { name: "Jeevesh Kandasamy", role: "Arduino and CAD Mentor", image: null },
     { name: "Minjae Kim", role: "JavaScript Mentor", image: null },
     { name: "Jude Al Sakka", role: "Java Mentor", image: null },
@@ -61,7 +62,7 @@ function Members() {
                     <img
                       src={member.image}
                       alt={member.name}
-                      className={`h-full w-full object-cover ${member.name === "Palash Agrawal" ? "object-[30%_20%] scale-125" : ""}`}
+                      className={`h-full w-full object-cover ${member.name === "Palash Agrawal" ? "object-[30%_20%] scale-125" : member.name === "Shreeansh Bharadwaj" ? "object-[50%_30%]" : ""}`}
                     />
                   ) : (
                     <span className="text-foreground/30 text-sm">Photo</span>
