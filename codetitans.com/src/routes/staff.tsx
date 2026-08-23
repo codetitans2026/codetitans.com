@@ -23,7 +23,7 @@ function Members() {
     { name: "Shreeansh Bharadwaj", role: "Python Mentor", image: null },
     { name: "Jeevesh Kandasamy", role: "Arduino and CAD Mentor", image: null },
     { name: "Minjae Kim", role: "JavaScript Mentor", image: null },
-    { name: "Yashas Prasad", role: "Java Mentor", image: null },
+    { name: "Jude Al Sakka", role: "Java Mentor", image: null },
     { name: "Aashman", role: "Arduino and CAD Mentor", image: null },
   ];
 
