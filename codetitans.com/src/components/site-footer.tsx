@@ -17,7 +17,7 @@ export function SiteFooter() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-x-8 gap-y-3 text-sm md:justify-self-center">
+        <div className="grid grid-cols-4 gap-x-6 gap-y-3 text-sm md:justify-self-center">
           <Link to="/about" className="text-foreground/85 hover:text-primary">About Us</Link>
           <Link to="/staff" className="text-foreground/85 hover:text-primary">Our Staff</Link>
           <Link to="/programs" className="text-foreground/85 hover:text-primary">Programs</Link>
