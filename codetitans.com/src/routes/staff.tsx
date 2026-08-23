@@ -62,7 +62,7 @@ function Members() {
                     <img
                       src={member.image}
                       alt={member.name}
-                      className={`h-full w-full object-cover ${member.name === "Palash Agrawal" ? "object-[30%_20%] scale-125" : member.name === "Shreeansh Bharadwaj" ? "object-[50%_30%]" : ""}`}
+                      className={`h-full w-full object-cover ${member.name === "Palash Agrawal" ? "object-[30%_20%] scale-125" : member.name === "Shreeansh Bharadwaj" ? "object-[50%_25%] scale-110" : ""}`}
                     />
                   ) : (
                     <span className="text-foreground/30 text-sm">Photo</span>
