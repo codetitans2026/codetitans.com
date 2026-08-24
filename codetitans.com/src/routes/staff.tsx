@@ -3,6 +3,7 @@ import { Reveal } from "../components/reveal";
 import valanSebastian from "../assets/valan-sebastian.png";
 import palashAgrawal from "../assets/palash-agrawal.jpg";
 import shreeanshBharadwaj from "../assets/shreeansh-bharadwaj.jpg";
+import minjaeKim from "../assets/minjae-kim.jpg";
 
 export const Route = createFileRoute("/staff")({
   head: () => ({
@@ -23,7 +24,7 @@ function Members() {
     { name: "Valan Sebastian", role: "JavaScript Mentor", image: valanSebastian },
     { name: "Shreeansh Bharadwaj", role: "Python Mentor", image: shreeanshBharadwaj },
     { name: "Jeevesh Kandasamy", role: "Arduino and CAD Mentor", image: null },
-    { name: "Minjae Kim", role: "JavaScript Mentor", image: null },
+    { name: "Minjae Kim", role: "JavaScript Mentor", image: minjaeKim },
     { name: "Jude Al Sakka", role: "Java Mentor", image: null },
     { name: "Aashman", role: "Arduino and CAD Mentor", image: null },
   ];
