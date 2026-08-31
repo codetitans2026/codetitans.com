@@ -4,6 +4,7 @@ import valanSebastian from "../assets/valan-sebastian.png";
 import palashAgrawal from "../assets/palash-agrawal.jpg";
 import shreeanshBharadwaj from "../assets/shreeansh-bharadwaj.jpg";
 import minjaeKim from "../assets/minjae-kim.jpg";
+import judeAlSakka from "../assets/jude-al-sakka.jpg";
 
 export const Route = createFileRoute("/staff")({
   head: () => ({
@@ -22,10 +23,10 @@ function Members() {
     { name: "Daniil Kupriianov", role: "Python Mentor", image: null },
     { name: "Palash Agrawal", role: "Java Mentor", image: palashAgrawal },
     { name: "Valan Sebastian", role: "JavaScript Mentor", image: valanSebastian },
-    { name: "Shreeansh Bharadwaj", role: "Python Mentor", image: shreeanshBharadwaj },
-    { name: "Jeevesh Kandasamy", role: "Arduino and CAD Mentor", image: null },
+    { name: "Shreeansh Bharadwaj", role: "Arduino and CAD Mentor", image: shreeanshBharadwaj },
+    { name: "Jeevesh Kandasamy", role: "Java Mentor", image: null },
     { name: "Minjae Kim", role: "JavaScript Mentor", image: minjaeKim },
-    { name: "Jude Al Sakka", role: "Java Mentor", image: null },
+    { name: "Jude Al Sakka", role: "Python Mentor", image: judeAlSakka },
     { name: "Aashman", role: "Arduino and CAD Mentor", image: null },
   ];
 
