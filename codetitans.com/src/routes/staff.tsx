@@ -20,10 +20,10 @@ export const Route = createFileRoute("/staff")({
 
 function Members() {
   const members = [
-    { name: "Daniil Kupriianov", role: "Python Mentor", image: null },
+    { name: "Daniil Kupriianov", role: "Arduino and CAD Mentor", image: null },
     { name: "Palash Agrawal", role: "Java Mentor", image: palashAgrawal },
     { name: "Valan Sebastian", role: "JavaScript Mentor", image: valanSebastian },
-    { name: "Shreeansh Bharadwaj", role: "Arduino and CAD Mentor", image: shreeanshBharadwaj },
+    { name: "Shreeansh Bharadwaj", role: "Python Mentor", image: shreeanshBharadwaj },
     { name: "Jeevesh Kandasamy", role: "Java Mentor", image: null },
     { name: "Minjae Kim", role: "JavaScript Mentor", image: minjaeKim },
     { name: "Jude Al Sakka", role: "Python Mentor", image: judeAlSakka },
